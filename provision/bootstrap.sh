@@ -36,6 +36,14 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password_again passwo
 echo "Installing MySQL"
 apt-get install mysql-server -y > /dev/null
 
+echo "Updating MongoDB repository"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 > /dev/null
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list > /dev/null
+sudo apt-get update > /dev/null
+
+echo "Installing MongoDB"
+sudo apt-get install -y mongodb-org > /dev/null
+
 echo "Preparing Node.js"
 curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash - > /dev/null
 
@@ -48,9 +56,6 @@ npm install -g bower > /dev/null
 
 echo "Install Grunt"
 npm install -g grunt-cli > /dev/null
-
-echo "Install BusterJs"
-npm install -g buster > /dev/null
 
 echo "Configuring Nginx"
 cp /vagrant/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
