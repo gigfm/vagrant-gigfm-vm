@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+DBPASSWD=test123
+
 echo "Provisioning virtual machine..."
 apt-get update
 rm -rf /var/www
@@ -27,8 +29,8 @@ apt-get install curl php5-curl php5-gd php5-mcrypt php5-mysql -y > /dev/null
 
 echo "Preparing MySQL"
 apt-get install debconf-utils -y > /dev/null
-debconf-set-selections <<< "mysql-server mysql-server/root_password password 1234"
-debconf-set-selections <<< "mysql-server mysql-server/root_password_again password 1234"
+debconf-set-selections <<< "mysql-server mysql-server/root_password password $DBPASSWD"
+debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $DBPASSWD"
 
 echo "Installing MySQL"
 apt-get install mysql-server -y > /dev/null
