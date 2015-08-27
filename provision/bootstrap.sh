@@ -3,7 +3,10 @@
 DBPASSWD=test123
 
 echo "Provisioning virtual machine..."
-apt-get update
+
+apt-get update > /dev/null
+apt-get install python-software-properties build-essential -y > /dev/null
+
 rm -rf /var/www
 ln -fs /vagrant/www /var/www
 
@@ -11,13 +14,14 @@ echo "Installing VIM"
 apt-get install vim -y > /dev/null
 
 echo "Installing Git"
+add-apt-repository ppa:git-core/ppa -y > /dev/null
+apt-get update > /dev/null
 apt-get install git -y > /dev/null
     
 echo "Installing Nginx"
 apt-get install nginx -y > /dev/null
 
 echo "Updating PHP repository"
-apt-get install python-software-properties build-essential -y > /dev/null
 add-apt-repository ppa:ondrej/php5 -y > /dev/null
 apt-get update > /dev/null
 
