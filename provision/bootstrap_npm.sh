@@ -15,6 +15,9 @@ npm install -g bower > /dev/null
 echo "Install Grunt"
 npm install -g grunt-cli > /dev/null
 
+echo "Install eslint"
+npm install -g eslint > /dev/null
+
 echo "Install Yeoman"
 npm install -g yo > /dev/null
 
