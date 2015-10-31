@@ -14,6 +14,8 @@ A simple box for demo-ing Vagrant and setting up a basic web development vm.
 4. Clone this repo (I found it useful to create a `~/vagrant/` directory and cloning it in there)
 5. cd into your new `dev-vm` directory
 6. Run `vagrant up`
+7. ssh into the dev-vm vagrant box with `vagrant ssh`
+8. `/var/www` on the dev-vm is sync'd with ~/dev-libs` on your host computer.  Add your projects in there.
 
 You now have a working VM that you can use for development.
 
