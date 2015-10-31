@@ -15,5 +15,5 @@ Vagrant.configure("2") do |config|
 
 	config.vm.provision "shell", path: "provision/bootstrap.sh", privileged: true
 	config.vm.provision "shell", path: "provision/bootstrap_npm.sh", privileged: false	
-	config.vm.synced_folder "~/dev", "/var/www", type: "nfs"
+	config.vm.synced_folder "~/dev-libs", "/var/www", type: "nfs"
 end
