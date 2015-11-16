@@ -13,7 +13,7 @@ server {
 
     ## Default location
     location / {
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/ /index.php /index.html =404;
     }
 
     ## Parse all .php file in the /var/www directory
