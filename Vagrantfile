@@ -1,3 +1,8 @@
+libs_directory = $1
+if !libs_directory
+	libs_directory = "~/dev-libs"
+end
+
 Vagrant.configure("2") do |config|
 	config.vm.box = "hashicorp/precise64"
 	config.vm.hostname = "dev-vm"
