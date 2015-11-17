@@ -18,6 +18,15 @@ npm install -g grunt-cli > /dev/null
 echo "Install eslint"
 npm install -g eslint > /dev/null
 
+echo "Install Buster.js"
+npm instll -g buster > /dev/null
+
+echo "Install Webpack"
+npm instll -g webpack > /dev/null
+
+echo "Install babel"
+npm instal -g babel > /dev/null
+
 echo "Install Yeoman"
 npm install -g yo > /dev/null
 

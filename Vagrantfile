@@ -1,17 +1,17 @@
 libs_directory = $1
 if !libs_directory
-	libs_directory = "~/dev-libs"
+	libs_directory = "~/dev-web"
 end
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "hashicorp/precise64"
-	config.vm.hostname = "dev-vm"
+	config.vm.hostname = "web-vm"
 	config.vm.network :private_network, ip: "192.168.56.10"
 
 	config.ssh.forward_agent = true
 
 	config.vm.provider "virtualbox" do |vb|
-	    vb.name = "dev-vm"
+	    vb.name = "web-vm"
 	    vb.customize ["modifyvm", :id, "--memory", "768"]
 	end
 
