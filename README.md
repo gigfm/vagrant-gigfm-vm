@@ -1,4 +1,4 @@
-# web-vm
+# vagrant-giffm-vm
 Basic Vagrant development box for the gigfm project
 
 # Use
