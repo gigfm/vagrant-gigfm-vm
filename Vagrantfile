@@ -1,24 +1,18 @@
-libs_directory = $1
-if !libs_directory
-	libs_directory = "~/dev-web"
-end
-
 Vagrant.configure("2") do |config|
 	config.vm.box = "hashicorp/precise64"
-	config.vm.hostname = "web-vm"
-	config.vm.network :private_network, ip: "192.168.56.10"
+	config.vm.hostname = "gigfm-vm"
+	config.vm.network :private_network, ip: "192.168.56.11"
 
 	config.ssh.forward_agent = true
 
 	config.vm.provider "virtualbox" do |vb|
-	    vb.name = "web-vm"
+	    vb.name = "gigfm-vm"
 	    vb.customize ["modifyvm", :id, "--memory", "768"]
 	end
 
-	config.vm.synced_folder libs_directory, "/var/www", type: "nfs"
+	config.vm.synced_folder "~/dev-web/gigfm", "/var/www", type: "nfs"
 
 	config.vm.provision "file", source: "~/.gitconfig", destination: "~/.gitconfig"
-	config.vm.provision "file", source: "provision/www/index.php", destination: "/var/www/index.php"
 
 	config.vm.provision "shell", path: "provision/bootstrap.sh", privileged: true
 	config.vm.provision "shell", path: "provision/bootstrap_npm.sh", privileged: false	
